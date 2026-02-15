@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealCast Control Surface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
+  <style>body {background:#05060a;margin:0;font-family:'Inter', sans-serif;color:#e8e9ee;}
+.app-shell {min-height:100vh;padding:32px 48px;box-sizing:border-box;background:radial-gradient(circle at top,#10121c,#05060a 60%);} 
+.hero {display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:24px;}
+.hero-title {font-family:'Space Grotesk', sans-serif;font-size:48px;margin:4px 0;color:#f8f9ff;}
+.eyebrow {text-transform:uppercase;letter-spacing:0.3em;font-size:12px;color:#a3a7d1;}
+.hero-copy {color:#cfd2ff;font-size:16px;max-width:520px;}
+.selector label {display:block;margin-bottom:8px;color:#9ba1c5;font-size:13px;text-transform:uppercase;letter-spacing:0.14em;}
+#prospect-select {color:#05060a;}
+.layout-grid {display:flex;gap:24px;}
+.column {flex:1;display:flex;flex-direction:column;gap:20px;}
+.left {flex:0.9;}
+.right {flex:1.1;}
+.stat-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+.stat-card {padding:18px;border:1px solid rgba(255,255,255,0.08);border-radius:16px;background:rgba(255,255,255,0.02);} 
+.stat-label {font-size:12px;text-transform:uppercase;letter-spacing:0.16em;color:#8f93b8;margin-bottom:6px;}
+.stat-value {font-size:20px;font-weight:600;color:#f8f9ff;}
+.section-card {padding:22px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;background:rgba(11,13,23,0.9);box-shadow:0 10px 30px rgba(3,4,8,0.6);}
+.section-title {font-size:15px;text-transform:uppercase;letter-spacing:0.2em;color:#7e85b5;margin-bottom:16px;}
+.bullet-list {padding-left:20px;margin:0;display:flex;flex-direction:column;gap:8px;color:#e4e6ff;}
+.bullet-list li {line-height:1.4;}
+.tech-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+.tech-card {padding:16px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.04);} 
+.tech-label {font-size:13px;font-weight:500;color:#b2b7e4;margin-bottom:8px;}
+.tech-value {font-size:15px;color:#f7f8ff;line-height:1.4;}
+.persona-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.persona-card {padding:18px;border-radius:18px;background:rgba(23,25,45,0.9);border:1px solid rgba(255,255,255,0.05);} 
+.persona-name {font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;}
+.persona-title {font-size:14px;color:#9ba1c5;margin-bottom:10px;}
+.persona-bio {margin:0;color:#d8dbff;line-height:1.5;font-size:14px;}
+.chip-row {display:flex;flex-wrap:wrap;gap:8px;}
+.chip {padding:6px 12px;border-radius:999px;background:rgba(126,133,181,0.18);font-size:13px;color:#c5c8f2;border:1px solid rgba(197,200,242,0.3);}
+.snippet-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.snippet-card {padding:16px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);}
+.snippet-title {font-size:15px;font-weight:600;margin-bottom:8px;color:#fdfdff;}
+.snippet-body {margin:0;color:#d5d8ff;font-size:14px;line-height:1.5;min-height:72px;}
+.snippet-footnote {margin-top:12px;font-size:12px;color:#8a8fb4;}
+@media(max-width:1024px){.hero{flex-direction:column;align-items:flex-start;}.layout-grid{flex-direction:column;}}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">DealCast</div>
+        <h1 class="hero-title">Control Surface</h1>
+        <p class="hero-copy">Wire prospects, knowledge snippets, and personas into one glance for live show prep.</p>
+      </div>
+      <div class="selector">
+        <label for="prospect-select">Prospect Roster</label>
+        <select id="prospect-select">
+          <option value="HeliosAgTech">HeliosAgTech</option>
+<option value="NovaThera Labs">NovaThera Labs</option>
+<option value="AetherGrid Mobility">AetherGrid Mobility</option>
+        </select>
+      </div>
+    </div>
+    <div class="layout-grid">
+      <div class="column left">
+        <div id="company-meta"></div>
+        <div id="tech-stack"></div>
+        <div id="personas"></div>
+      </div>
+      <div class="column right">
+        <div id="challenges"></div>
+        <div id="buying-triggers"></div>
+        <div id="competitive-notes"></div>
+        <div class="section-card">
+          <div class="section-title">Knowledge Signals</div>
+          <div class="snippet-grid">
+            <div class="snippet-card">
+          <div class="snippet-title">AI Infrastructure Spend Pulse</div>
+          <p class="snippet-body">Market Intel — Q1 FY26: Enterprise GPU procurement is up 38% QoQ, with AMD MI300 deployments finally breaking into 22% of new clusters. Hyperscalers are bundling inference credits with colo contracts to block Azure Arc wins.</p>
+          <div class="snippet-footnote">knowledge/mock/market-intel/ai-infra-spend-pulse.md</div>
+        </div>
+<div class="snippet-card">
+          <div class="snippet-title">Retail Agent Benchmark</div>
+          <p class="snippet-body">Market Intel — Retail CX: Top 50 retailers report a 14% decrease in live-chat handle time after layering retrieval-augmented agents onto legacy IVRs. Leaders pair in-store apps with the same grounding graph.</p>
+          <div class="snippet-footnote">knowledge/mock/market-intel/retail-agent-benchmark.md</div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const PROSPECTS = [{"companyName": "HeliosAgTech", "industry": "Autonomous Agriculture Robotics", "headquarters": "Fresno, CA", "annualRevenue": "62M", "growthStage": "Series C", "techStack": {"cloud": "AWS (EKS, IoT Core, Greengrass)", "data": "Snowflake, dbt, Kafka", "app": "Node.js, Python, ROS2", "security": "Wiz, Panther"}, "challenges": ["Edge device fleet needs zero-touch provisioning across remote farms", "Seasonal data spikes overwhelm current data pipelines", "Compliance pressure for SOC 2 and FDA food-safety telemetry"], "buyingTriggers": ["Expanded into Latin America with new field robotics teams", "Board mandate to standardize observability and cost governance", "Upcoming Series D diligence requires cloud maturity proof points"], "competitiveNotes": ["Talking to HashiCorp services partner for IaC advisory", "Evaluating Deloitte’s AgTech practice for managed services", "Prior negative experience with boutique MSP lacking robotics expertise"], "personas": [{"name": "Mara Singh", "title": "VP Cloud & Edge Engineering", "personaBio": "Ex-Tesla Autonomy lead specializing in orchestration for mixed edge-cloud workloads; obsessed with predictable OTA updates and SLA transparency."}, {"name": "Luis Ortega", "title": "Director of Data Reliability", "personaBio": "Owns sensor-to-snowflake pipeline; cares about data quality SLAs, rapid root-cause analysis, and cost controls for bursty ingestion."}]}, {"companyName": "NovaThera Labs", "industry": "Personalized Biologics Manufacturing", "headquarters": "Cambridge, MA", "annualRevenue": "185M", "growthStage": "Pre-IPO", "techStack": {"cloud": "Azure (AKS, Synapse, Purview)", "data": "Databricks, Lakehouse Federation, Azure ML", "app": ".NET 8 microservices, Go control plane", "security": "CrowdStrike, Azure Defender, Immuta"}, "challenges": ["Batch manufacturing twins lack unified governance across GMP/GxP zones", "Need faster ML deployment cycles for real-time therapy personalization", "Complex vendor ecosystem causing duplicated compliance evidence"], "buyingTriggers": ["FDA audit window in 6 months requires validated cloud change controls", "Spin-out of EU subsidiary driving need for multi-region blueprint", "CFO wants predictable FinOps model before S-1 filing"], "competitiveNotes": ["Accenture Life Sciences courting for multi-year transformation", "Internal team piloting AWS as shadow IT; leadership wants neutral advisor", "Worked with Slalom previously but lacked depth in regulated manufacturing"], "personas": [{"name": "Dr. Evelyn Park", "title": "Chief Digital Manufacturing Officer", "personaBio": "Leads continuous manufacturing digitization; expects partners to understand GMP validation packs and hybrid cloud constraints."}, {"name": "Marcus Feld", "title": "Head of Cloud Platform", "personaBio": "Former hedge-fund infra lead; focused on policy-as-code, GitOps, and reducing time-to-approve for high-risk changes."}]}, {"companyName": "AetherGrid Mobility", "industry": "Urban eVTOL Mobility Networks", "headquarters": "Austin, TX", "annualRevenue": "44M", "growthStage": "Series B", "techStack": {"cloud": "GCP (GKE, Cloud Run, Pub/Sub)", "data": "BigQuery, Vertex AI, TimescaleDB", "app": "Rust flight systems, React Native passenger app", "security": "Drata, Lacework, Cloudflare Zero Trust"}, "challenges": ["Need deterministic latency between flight control systems and cloud analytics", "Safety certification demands tamper-proof telemetry lineage", "Partner ecosystem (airports, cities) requires multi-tenant isolation"], "buyingTriggers": ["Signed MOU with Dubai Smart Mobility Council requiring 24/7 ops", "Recent incident triggered board request for external reliability audit", "Preparing for FAA Part 135 certification—needs documented runbooks"], "competitiveNotes": ["In talks with Google PSO but budget constrained", "Rival eVTOL startup partnered with Thoughtworks causing executive pressure", "Internal SRE team stretched thin; open to managed reliability pods"], "personas": [{"name": "Noah Reyes", "title": "CTO", "personaBio": "Aerospace software veteran; values partners who blend rigorous safety discipline with startup velocity."}, {"name": "Sofia Almeida", "title": "Head of Reliability Engineering", "personaBio": "Runs 12-person SRE team; metric-driven, wants chaos engineering playbooks and real-time incident coaching."}]}];
+    const PROSPECT_LOOKUP = Object.fromEntries(PROSPECTS.map(p => [p.companyName, p]));
+
+    function buildStat(label, value) {
+      return '<div class="stat-card">
+        <div class="stat-label">' + label + '</div>
+        <div class="stat-value">' + value + '</div>
+      </div>';
+    }
+    function buildListSection(title, items) {
+      const itemsMarkup = items.map(item => '<li>' + item + '</li>').join('');
+      return '<div class="section-card">
+        <div class="section-title">' + title + '</div>
+        <ul class="bullet-list">' + itemsMarkup + '</ul>
+      </div>';
+    }
+    function buildTechStack(tech) {
+      const cards = Object.entries(tech).map(([lane, value]) => {
+        const label = lane.charAt(0).toUpperCase() + lane.slice(1);
+        return '<div class="tech-card">
+          <div class="tech-label">' + label + '</div>
+          <div class="tech-value">' + value + '</div>
+        </div>';
+      }).join('');
+      return '<div class="section-card">
+        <div class="section-title">Tech Stack Lanes</div>
+        <div class="tech-grid">' + cards + '</div>
+      </div>';
+    }
+    function buildPersonas(personas) {
+      const cards = personas.map(persona => {
+        return '<div class="persona-card">
+          <div class="persona-name">' + persona.name + '</div>
+          <div class="persona-title">' + persona.title + '</div>
+          <p class="persona-bio">' + persona.personaBio + '</p>
+        </div>';
+      }).join('');
+      return '<div class="section-card">
+        <div class="section-title">Personas</div>
+        <div class="persona-grid">' + cards + '</div>
+      </div>';
+    }
+
+    function hydrate(companyName) {
+      const prospect = PROSPECT_LOOKUP[companyName];
+      const meta = [
+        ['Industry', prospect.industry],
+        ['HQ', prospect.headquarters],
+        ['Revenue', prospect.annualRevenue],
+        ['Stage', prospect.growthStage]
+      ].map(([label, value]) => buildStat(label, value)).join('');
+      document.getElementById('company-meta').innerHTML = '<div class="stat-grid">' + meta + '</div>';
+      document.getElementById('tech-stack').innerHTML = buildTechStack(prospect.techStack);
+      document.getElementById('personas').innerHTML = buildPersonas(prospect.personas);
+      document.getElementById('challenges').innerHTML = buildListSection('Challenges in Play', prospect.challenges);
+      document.getElementById('buying-triggers').innerHTML = buildListSection('Buying Triggers', prospect.buyingTriggers);
+      document.getElementById('competitive-notes').innerHTML = buildListSection('Competitive Notes', prospect.competitiveNotes);
+    }
+
+    const selector = document.getElementById('prospect-select');
+    selector.addEventListener('change', (event) => hydrate(event.target.value));
+    hydrate(selector.value || PROSPECTS[0].companyName);
+  </script>
+</body>
+</html>
+        
