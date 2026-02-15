@@ -135,24 +135,62 @@ def build_html(prospects: list[dict], snippets: list[dict]) -> str:
     const PROSPECT_LOOKUP = Object.fromEntries(PROSPECTS.map(p => [p.companyName, p]));
 
     function buildStat(label, value) {
-      return '<div class="stat-card">\n        <div class="stat-label">' + label + '</div>\n        <div class="stat-value">' + value + '</div>\n      </div>';
+      return `
+        <div class="stat-card">
+          <div class="stat-label">$${label}</div>
+          <div class="stat-value">$${value}</div>
+        </div>
+      `;
     }
+
     function buildListSection(title, items) {
-      const itemsMarkup = items.map(item => '<li>' + item + '</li>').join('');
-      return '<div class="section-card">\n        <div class="section-title">' + title + '</div>\n        <ul class="bullet-list">' + itemsMarkup + '</ul>\n      </div>';
+      const itemsMarkup = items.map(item => `<li>$${item}</li>`).join('');
+      return `
+        <div class="section-card">
+          <div class="section-title">$${title}</div>
+          <ul class="bullet-list">$${itemsMarkup}</ul>
+        </div>
+      `;
     }
+
     function buildTechStack(tech) {
-      const cards = Object.entries(tech).map(([lane, value]) => {
-        const label = lane.charAt(0).toUpperCase() + lane.slice(1);
-        return '<div class="tech-card">\n          <div class="tech-label">' + label + '</div>\n          <div class="tech-value">' + value + '</div>\n        </div>';
-      }).join('');
-      return '<div class="section-card">\n        <div class="section-title">Tech Stack Lanes</div>\n        <div class="tech-grid">' + cards + '</div>\n      </div>';
+      const cards = Object.entries(tech)
+        .map(([lane, value]) => {
+          const label = lane.charAt(0).toUpperCase() + lane.slice(1);
+          return `
+            <div class="tech-card">
+              <div class="tech-label">$${label}</div>
+              <div class="tech-value">$${value}</div>
+            </div>
+          `;
+        })
+        .join('');
+
+      return `
+        <div class="section-card">
+          <div class="section-title">Tech Stack Lanes</div>
+          <div class="tech-grid">$${cards}</div>
+        </div>
+      `;
     }
+
     function buildPersonas(personas) {
-      const cards = personas.map(persona => {
-        return '<div class="persona-card">\n          <div class="persona-name">' + persona.name + '</div>\n          <div class="persona-title">' + persona.title + '</div>\n          <p class="persona-bio">' + persona.personaBio + '</p>\n        </div>';
-      }).join('');
-      return '<div class="section-card">\n        <div class="section-title">Personas</div>\n        <div class="persona-grid">' + cards + '</div>\n      </div>';
+      const cards = personas
+        .map(persona => `
+          <div class="persona-card">
+            <div class="persona-name">$${persona.name}</div>
+            <div class="persona-title">$${persona.title}</div>
+            <p class="persona-bio">$${persona.personaBio}</p>
+          </div>
+        `)
+        .join('');
+
+      return `
+        <div class="section-card">
+          <div class="section-title">Personas</div>
+          <div class="persona-grid">$${cards}</div>
+        </div>
+      `;
     }
 
     function hydrate(companyName) {
