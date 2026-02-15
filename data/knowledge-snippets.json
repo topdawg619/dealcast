@@ -1,0 +1,13 @@
+{
+  "documents": [
+    {
+      "title": "AI Infrastructure Spend Pulse",
+      "path": "knowledge/mock/market-intel/ai-infra-spend-pulse.md",
+      "snippet": "Market Intel — Q1 FY26: Enterprise GPU procurement is up 38% QoQ, with AMD MI300 deployments finally breaking into 22% of new clusters. Hyperscalers are bundling inference credits with colo contracts to block Azure Arc wins."
+    },
+    {
+      "title": "Retail Agent Benchmark",
+      "path": "knowledge/mock/market-intel/retail-agent-benchmark.md",
+      "snippet": "Market Intel — Retail CX: Top 50 retailers report a 14% decrease in live-chat handle time after layering retrieval-augmented agents onto legacy IVRs. Leaders pair in-store apps with the same grounding graph."}
+  ]
+}
