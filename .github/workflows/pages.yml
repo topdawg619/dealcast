@@ -2,9 +2,7 @@ name: Deploy DealCast Dash to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-    paths:
-      - "projects/dealcast/**"
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
