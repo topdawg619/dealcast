@@ -1,0 +1,148 @@
+{
+  "session_context": {
+    "request_id": "dc-2026-02-15-helio",
+    "segment": "DealCast • Segment B",
+    "host": "Chris",
+    "voice_profile": "Anchor: Chris — steady, fast authority",
+    "target_duration_seconds": 135
+  },
+  "intel_scout_brief": {
+    "headline": "NovaThera is reopening the IPO window with audit-proof AI",
+    "why_now": "FDA exam hits in six months while the board wants S-1 readiness, so every ML twin needs validated change control right now.",
+    "signal_stack": [
+      {
+        "label": "Regulatory clock",
+        "detail": "FDA audit window triggers Q3 validation sprint [src-fda-window]"
+      },
+      {
+        "label": "Shadow IT",
+        "detail": "Internal ML pod piloting AWS outside governed Azure landing zone [src-shadow-it]"
+      },
+      {
+        "label": "Capital marker",
+        "detail": "CFO needs deterministic FinOps view pre S-1 [src-finops]"
+      }
+    ],
+    "risk_flags": [
+      "Multi-region data residency unresolved",
+      "Accenture Life Sciences lobbying hard for multi-year lock-in"
+    ],
+    "gaps": [
+      "Need latest headcount split between U.S. / EU plants",
+      "Confirm whether Board approved AWS carve-out"
+    ]
+  },
+  "playbook": {
+    "opening_angle": "Lead with the audit clock, then pivot to neutral orchestration that tames shadow IT without slowing ML releases.",
+    "talk_tracks": [
+      {
+        "title": "Audit clock is loud",
+        "beats": [
+          "Six-month FDA window means validation must be automated, not manual spreadsheets [src-fda-window]",
+          "Position our regulated cloud blueprint as the only way to pass the exam without freezing releases"
+        ],
+        "overlay": "lt.audit_clock"
+      },
+      {
+        "title": "Shadow IT needs a referee",
+        "beats": [
+          "ML teams spun up AWS workloads because Azure change approvals take 19 days [src-shadow-it]",
+          "Offer neutral orchestrator stance: we certify both clouds but keep policy-as-code in one control plane"
+        ],
+        "overlay": "lt.dual_cloud"
+      },
+      {
+        "title": "Cash discipline wins board votes",
+        "beats": [
+          "CFO wants FinOps telemetry baked into every release [src-finops]",
+          "Show cost deltas per batch run, tie to S-1 story"
+        ],
+        "overlay": "lt.finops_dial"
+      }
+    ],
+    "cta_blocks": [
+      {
+        "label": "Schedule GMP Blueprint Workshop",
+        "microcopy": "Drop /slot NOVA for a 90-min walkthrough",
+        "asset": "cta.blueprint_form"
+      },
+      {
+        "label": "Send Audit-Ready ML Runbook",
+        "microcopy": "One-pager auto-fills with their twin stack",
+        "asset": "cta.runbook_pdf"
+      }
+    ],
+    "producer_notes": "Keep gap tracker on-screen; if headcount data stays open, note it before CTA. Lower-thirds lt.audit_clock, lt.dual_cloud, lt.finops_dial already in kit."
+  },
+  "call_studio": {
+    "host_script": [
+      {
+        "timestamp": "T+00",
+        "copy": "Chris: \"NovaThera just circled a pre-IPO FDA audit, which means every digital twin they run has to be validated on autopilot in the next six months.\" [src-fda-window]",
+        "delivery": "confident 130 wpm"
+      },
+      {
+        "timestamp": "T+18",
+        "copy": "\"Right now their ML pod spun up shadow AWS clusters because Azure change control drags to 19 days—board hates the blind spot.\" [src-shadow-it]",
+        "delivery": "lean-in"
+      },
+      {
+        "timestamp": "T+32",
+        "copy": "\"Our neutral orchestrator play keeps both clouds in-bounds, stamps every model update with GMP evidence, and still ships weekly.\"",
+        "delivery": "measured"
+      },
+      {
+        "timestamp": "T+52",
+        "copy": "\"And the CFO finally sees batch-by-batch spend deltas inside the FinOps cockpit, so that S-1 story doesn't wobble.\" [src-finops]",
+        "delivery": "upbeat"
+      },
+      {
+        "timestamp": "T+70",
+        "copy": "\"If you're NovaThera, hit the Blueprint Workshop slot now—we'll bring the validated templates and the audit team.\"",
+        "delivery": "call-to-action"
+      },
+      {
+        "timestamp": "T+88",
+        "copy": "\"Backup if procurement drags? We can drop the audit-ready runbook today so production keeps flying.\"",
+        "delivery": "assuring"
+      },
+      {
+        "timestamp": "T+105",
+        "copy": "\"Gap check: still chasing the EU headcount split; if they confirm tonight we'll update the risk card before airtime.\"",
+        "delivery": "transparent"
+      }
+    ],
+    "cue_sheet": [
+      {
+        "time": "T+03",
+        "action": "Push lower-third lt.audit_clock"
+      },
+      {
+        "time": "T+20",
+        "action": "Trigger split-screen with dual-cloud schematic"
+      },
+      {
+        "time": "T+35",
+        "action": "Roll b-roll package broll_gmp_floor"
+      },
+      {
+        "time": "T+55",
+        "action": "Animate finops meter overlay lt.finops_dial"
+      },
+      {
+        "time": "T+72",
+        "action": "Show CTA stack (cta.blueprint_form + cta.runbook_pdf)"
+      },
+      {
+        "time": "T+100",
+        "action": "Flash gap tracker pill"
+      }
+    ],
+    "safety_checks": [
+      "No financial advice or revenue projections stated",
+      "All regulatory claims sourced to public filings or internal QA notes",
+      "CTA copy avoids guaranteeing outcomes"
+    ],
+    "fallback_line": "If legal flags the AWS shadow detail, pivot to: 'NovaThera's ML teams are racing outside the current guardrails; we're the fastest path to bring them back under validation.'"
+  }
+}
